@@ -88,6 +88,14 @@ Return value
 Promise<string | undefined>
 ```
 
+## Known issues
+
+- A small handful of Android devices may have trouble completing the PBT scanning process. We are currently investigating a solution with using WebNFC for Android devices.
+
+## Disclaimer
+
+Chiru Labs is not liable for any outcomes as a result of using this repo
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
