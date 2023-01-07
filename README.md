@@ -2,7 +2,9 @@
 
 ## About
 
-This is a light-weight js lib that aims to make chip signatures for the Azuki PBT as seamless as possible. The repo for the smart contracts can be found [here](https://github.com/chiru-labs/pbt). For more information on PBT, please visit [pbt.io](https://www.pbt.io/)
+This is a light-weight js lib that aims to make chip signatures for the [PBT](http://pbt.io/) flow as seamless as possible.
+
+The repo for the smart contracts can be found [here](https://github.com/chiru-labs/pbt).
 
 ## Getting started
 
@@ -10,7 +12,7 @@ This is a light-weight js lib that aims to make chip signatures for the Azuki PB
 yarn add pbt-chip-client
 ```
 
-After installing you can import the relevant chip manufacturer’s helpers. Currently, the only manufacturer supported in-repo is [Kongiscash](https://twitter.com/kongiscash).
+After installing, you can import the relevant chip manufacturer’s helpers. Currently, the only chip manufacturer supported in the repo is [Kongiscash](https://twitter.com/kongiscash).
 
 React example:
 
@@ -51,7 +53,7 @@ const MyComponent = () => {
 
 ## Documentation
 
-This package exposes 2 functions for each chip manufacturer to support PBT flow
+This package exposes 2 functions for each chip manufacturer:
 
 ### `getPublicKeysFromScan`
 
@@ -94,7 +96,7 @@ Promise<string | undefined>
 
 ## Disclaimer
 
-Chiru Labs is not liable for any outcomes as a result of using this repo
+Chiru Labs is not liable for any outcomes as a result of using this repo.
 
 ## Contributing
 
