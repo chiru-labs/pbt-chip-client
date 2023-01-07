@@ -1,0 +1,83 @@
+{
+  "name": "pbt-chip-client",
+  "version": "0.0.1",
+  "description": "Javascript library to make it easy to integrate with PBT for browsers",
+  "scripts": {
+    "pre-commit": "lint-staged",
+    "test": "jest",
+    "prepublishOnly": "yarn build && yarn run lint && yarn run test",
+    "prebuild": "yarn clean && tsc --emitDeclarationOnly --declaration -p tsconfig.json",
+    "format-file": "prettier --write",
+    "build": "rollup -c",
+    "clean": "rm -rf dist",
+    "lint": "eslint -c .eslintrc.js '**/*.ts' --ignore-path '.gitignore'",
+    "lint-file": "eslint --fix",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chiru-labs/pbt-chip-client.git"
+  },
+  "keywords": [
+    "pbt",
+    "pbt-chip",
+    "pbt-chip-client"
+  ],
+  "author": "chiru-labs",
+  "license": "MIT",
+  "exports": {
+    "./kong": {
+      "node": {
+        "types": "./dist/src/kong/index.d.ts",
+        "require": "./dist/cjs/kong/index.js",
+        "import": "./dist/cjs/kong/index.js"
+      },
+      "types": "./dist/src/kong/index.d.ts",
+      "require": "./dist/cjs/kong/index.js",
+      "import": "./dist/cjs/kong/index.js",
+      "default": "./dist/esm/kong/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "kong": [
+        "dist/src/kong/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "lint-staged": {
+    "**/*.ts": [
+      "yarn lint-file --fix",
+      "yarn format-file"
+    ]
+  },
+  "dependencies": {
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
+    "@types/webappsec-credential-management": "^0.6.3",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "eslint": "^8.31.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.3",
+    "inject-version": "^1.0.0",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "jest-location-mock": "^1.0.9",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1",
+    "rollup": "^3.9.1",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "ts-jest": "^29.0.3",
+    "typescript": "^4.9.4"
+  }
+}
