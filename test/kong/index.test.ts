@@ -55,4 +55,19 @@ describe("Kong chip", () => {
       );
     }
   });
+
+  it("getPublicKeysFromScan without explicit rpId", async () => {
+    const result = await getPublicKeysFromScan();
+
+    if (result) {
+      const { primaryPublicKeyHash, primaryPublicKeyRaw } = result;
+
+      expect(primaryPublicKeyHash).toEqual(
+        "0x844821a2bad46a9ed8f65761debc79af0c7f0cf4af0a4f81e97a12afe0affb0d"
+      );
+      expect(primaryPublicKeyRaw).toEqual(
+        "786463333238333762323161626438396561343133616333646132303563343531663235346233363162623438353134"
+      );
+    }
+  });
 });
