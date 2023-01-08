@@ -57,6 +57,8 @@ This package exposes 2 functions for each chip manufacturer:
 
 ### `getPublicKeysFromScan`
 
+This function takes in a single object as the argument with the following parameters:
+
 | Parameter | Type | Description | Required |
 | ------------- | ------------- | ------------- | ------------- |
 | rpId | string | string representing the domain the scan is being called on. For example a workflow hosted on azuki.com would pass in `azuki.com`. Defaults to `URL.hostname` | No |
@@ -76,6 +78,8 @@ Promise<{
 
 
 ### `getSignatureFromScan`
+
+This function takes in a single object as the argument with the following parameters:
 
 | Parameter | Type | Description | Required |
 | ------------- | ------------- | ------------- | ------------- |
