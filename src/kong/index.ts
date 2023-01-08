@@ -234,7 +234,9 @@ export const getSignatureFromScan = async ({
   throw new Error("Error in signing, try again.");
 };
 
-export const getPublicKeysFromScan = async ({ rpId }: { rpId?: string }) => {
+export const getPublicKeysFromScan = async ({
+  rpId,
+}: { rpId?: string } = {}) => {
   if (!IS_BROWSER) {
     console.warn("This function is only available in a browser environment.");
 
