@@ -94,8 +94,13 @@ Return value
 Promise<string | undefined>
 ```
 
-## Known issues
+## Requirements
 
+- The library must be hosted with secure transport (SSL), even in a development environment.
+
+## Current known limitations
+
+- Scanning only works on mobile devices (powered by [WebAuthn](https://webauthn.guide/)). This is supported on major browsers (Chrome, Safari, Firefox) but not yet on wallet browsers (like [Metamask browser](https://github.com/MetaMask/metamask-mobile/issues/4974)).
 - A small handful of Android devices may have trouble completing the PBT scanning process. We are currently investigating a solution with using WebNFC for Android devices.
 
 ## Disclaimer
