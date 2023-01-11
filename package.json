@@ -1,6 +1,6 @@
 {
   "name": "pbt-chip-client",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Javascript library to make it easy to integrate with PBT for browsers",
   "scripts": {
     "pre-commit": "lint-staged",

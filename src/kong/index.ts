@@ -38,7 +38,7 @@ function generateCmd(
   return inputBytes;
 }
 
-function parseKeys(payload: string) {
+export function parseKeys(payload: string) {
   try {
     const primaryPublicKeyLength = parseInt("0x" + payload.slice(0, 2)) * 2;
     const primaryPublicKeyRaw = payload.slice(2, primaryPublicKeyLength + 2);

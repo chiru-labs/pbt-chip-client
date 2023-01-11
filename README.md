@@ -94,6 +94,27 @@ Return value
 Promise<string | undefined>
 ```
 
+### `parseKeys`
+
+This function takes a single positional argument:
+
+| Parameter | Type | Description | Required |
+| ------------- | ------------- | ------------- | ------------- |
+| payload | string | A hex representation of the signature read from scan  | Yes |
+
+Return value
+
+```ts
+{
+  primaryPublicKeyHash: string;
+  primaryPublicKeyRaw: string;
+  secondaryPublicKeyHash: string;
+  secondaryPublicKeyRaw: string;
+  tertiaryPublicKeyHash: string;
+  tertiaryPublicKeyRaw: string;
+} | undefined
+```
+
 ## Requirements
 
 - The library must be hosted with secure transport (SSL), even in a development environment.
