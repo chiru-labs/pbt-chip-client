@@ -53,7 +53,7 @@ const MyComponent = () => {
 
 ## Documentation
 
-This package exposes 2 functions for each chip manufacturer:
+This package exposes two functions for each chip manufacturer:
 
 ### `getPublicKeysFromScan`
 
