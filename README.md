@@ -12,7 +12,7 @@ The repo for the smart contracts can be found [here](https://github.com/chiru-la
 yarn add pbt-chip-client
 ```
 
-After installing, you can import the relevant chip manufacturer’s helpers. Currently, the only chip manufacturer supported in the repo is [Kongiscash](https://twitter.com/kongiscash).
+After installing, you can import the relevant chip manufacturer’s helpers. Currently, the only chip manufacturer supported in the repo is [Kongiscash](https://twitter.com/kongiscash) ([docs](https://docs.arx.org/)).
 
 React example:
 
@@ -123,6 +123,7 @@ Return value
 
 - Scanning only works on mobile devices (powered by [WebAuthn](https://webauthn.guide/)). This is supported on major browsers (Chrome, Safari, Firefox) but not yet on wallet browsers (like [Metamask browser](https://github.com/MetaMask/metamask-mobile/issues/4974)).
 - A small handful of Android devices may have trouble completing the PBT scanning process. We are currently investigating a solution with using WebNFC for Android devices.
+  - TODO: change implementation to use [libhalo](https://github.com/arx-research/libhalo) under the hood, as it has Android support
 
 ## Disclaimer
 
