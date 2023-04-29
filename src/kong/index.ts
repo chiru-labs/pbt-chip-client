@@ -159,6 +159,7 @@ export const getSignatureFromScan = async ({
   }
 
   const sigCmd = generateCmd(1, 1, address, hash);
+
   const sig = await triggerScan({
     reqx: sigCmd,
     rpId: rpId ?? parseHostName(),
@@ -173,32 +174,37 @@ export const getSignatureFromScan = async ({
     return;
   }
 
+  let vType = undefined;
+
+  const computedAddress = ethers.utils.computeAddress("0x" + chipPublicKey);
+  const addressToLower = computedAddress.toLowerCase();
+  const messageHash = hashMessageEIP191SolidityKeccak(address, hash);
+
   const sigString = buf2hex(sig);
   const sigSplit = unpackDERsignature(sigString);
 
   const vArr27 = new Uint8Array(1);
-  vArr27[0] = 27;
-  const v27 = buf2hex(vArr27);
-
   const vArr28 = new Uint8Array(1);
+
+  vArr27[0] = 27;
   vArr28[0] = 28;
+
+  const v27 = buf2hex(vArr27);
   const v28 = buf2hex(vArr28);
 
-  const computedAddress = ethers.utils.computeAddress("0x" + chipPublicKey);
-  const messageHash = hashMessageEIP191SolidityKeccak(address, hash);
+  const v27Sig = `0x${sigSplit.r}${sigSplit.s}${v27}`;
+  const v28Sig = `0x${sigSplit.r}${sigSplit.s}${v28}`;
 
-  let vType = undefined;
-  if (
-    ethers.utils
-      .recoverAddress(messageHash, `0x${sigSplit.r}${sigSplit.s}${v27}`)
-      .toLowerCase() === computedAddress.toLowerCase()
-  ) {
+  const isV27 =
+    ethers.utils.recoverAddress(messageHash, v27Sig).toLowerCase() ===
+    addressToLower;
+  const isV28 =
+    ethers.utils.recoverAddress(messageHash, v28Sig).toLowerCase() ===
+    addressToLower;
+
+  if (isV27) {
     vType = "27";
-  } else if (
-    ethers.utils
-      .recoverAddress(messageHash, `0x${sigSplit.r}${sigSplit.s}${v28}`)
-      .toLowerCase() === computedAddress.toLowerCase()
-  ) {
+  } else if (isV28) {
     vType = "28";
   } else {
     throw new Error("addressMismatch");
